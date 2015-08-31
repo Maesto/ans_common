@@ -8,7 +8,6 @@
      - mosh
      - atop
      - htop
-     - top
      - sysstat
      - iotop
      - screen
