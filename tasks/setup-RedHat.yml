@@ -1,0 +1,17 @@
+- name: installing common packages
+  yum: name={{ item }} state=present
+  with_items:
+     - ntp
+     - ntpdate
+     - vim
+     - emacs
+     - mosh
+     - atop
+     - htop
+     - top
+     - sysstat
+     - iotop
+     - screen
+     - tmux
+     - bash-completion
+     - rsync

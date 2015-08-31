@@ -1,0 +1,16 @@
+---
+#Setting up on RedHat Systems
+- include: setup-RedHat.yml
+  when: ansible_os_family == 'RedHat'
+
+#Setting up on Debian Systems
+- include: setup-Debian.yml
+  when: ansible_os_family == 'Debian'
+
+- name: ensure ntpd is running (Debian)
+  service: name=ntp enabled=yes state=started
+  when: ansible_os_family == 'Debian'
+
+- name: ensure ntpd is running (RedHat)
+  service: name=ntpd enabled=yes state=started
+  when: ansible_os_family == 'RedHat'
