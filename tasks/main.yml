@@ -1,16 +1,20 @@
 ---
 #Setting up on RedHat Systems
-- include: setup-RedHat.yml
+- include_tasks: setup-RedHat.yml
   when: ansible_os_family == 'RedHat'
 
 #Setting up on Debian Systems
-- include: setup-Debian.yml
+- include_tasks: setup-Debian.yml
   when: ansible_os_family == 'Debian'
 
-- name: ensure ntpd is running (Debian)
+- name: start ntpd
   service: name=ntp enabled=yes state=started
   when: ansible_os_family == 'Debian'
 
-- name: ensure ntpd is running (RedHat)
+- name: start ntpd
   service: name=ntpd enabled=yes state=started
   when: ansible_os_family == 'RedHat'
+
+- name: setup ssh authorized keys
+  include_tasks: add-ssh-keys.yml
+  
