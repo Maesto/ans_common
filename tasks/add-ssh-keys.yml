@@ -2,4 +2,4 @@
   authorized_key:
     user: "{{ maesto_sensible_defaults_ssh_user }}"
     state: present
-    key: "{{ lookup('file', {{ inventory_hostname }}-authorized_keys ) }}"
+    key: "{{ lookup('file', '{{ inventory_hostname }}-authorized_keys') }}"
