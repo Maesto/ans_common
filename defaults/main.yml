@@ -1,2 +1,3 @@
 ---
 # defaults file for maesto_sensible_defaults
+maesto_sensible_defaults_ssh_user: "root"
